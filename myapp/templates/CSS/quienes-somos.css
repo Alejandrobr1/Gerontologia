@@ -1,0 +1,33 @@
+.image-container {
+    position: relative;
+    width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
+    display: block;
+}
+
+.image {
+    width: 100%;  /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: 300px;  /* Ajusta la altura proporcionalmente */
+    display: block;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 30px;  /* Ajusta la distancia desde el borde izquierdo */
+    transform: translateY(-50%);
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    
+}
+
+.text-overlay {
+    margin: 0;
+}
+
+.card-container {
+    border: 2px solid #36b5ff; /* Color del borde */
+    background-color: #ffffff;  /* Color de fondo */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
