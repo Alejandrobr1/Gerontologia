@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 
+#Aca se encuntran los enlaces que se importaron a partir de la clase myapp para que se pueda acceder a las rutas descritas en esa plantilla
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -25,8 +26,6 @@ urlpatterns = [
     path('login/registro/', views.registro, name='registro'),
     path('especialidades/', views.especialidades, name='especialidades'),
     path('logout/', views.cerrarSesion, name='logout'),
+    path('quienes_somos/', views.somos, name='somos'),
     
-    
-    #path('index/',views.index, name="index")
-
     ]

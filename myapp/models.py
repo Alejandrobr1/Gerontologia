@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-
+#se crean las tablas que estarán contenidas en la base de datos
 class TUsuario(models.Model):
     nombre=models.CharField(max_length=100)
     primer_apellido=models.CharField(max_length=100)
@@ -15,12 +15,12 @@ class TUsuario(models.Model):
     direccion=models.CharField(max_length=100)
     rol=models.BooleanField(blank=False)
 
-    def __str__(self):
+    def __str__(self): #Este metodo se encargara de mostrar el nombre del usuario desde el administrador de Django
         return self.nombre +' '+ self.primer_apellido +' '+ self.segundo_apellido
 
 class TLogin(models.Model):
     fk_iduser=models.ForeignKey(TUsuario, on_delete=models.CASCADE)
     contrasena=models.CharField(max_length=100)
-    def __str__(self):
+    def __str__(self):#Este metodo se encargara de mostrar el correo del usuario desde el administrador de Django
         return self.fk_iduser.correo
         

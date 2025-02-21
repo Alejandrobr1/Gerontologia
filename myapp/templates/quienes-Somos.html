@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,9 +10,10 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="CSS/quienes-somos.css">
+    <link rel="stylesheet" href="{% static 'CSS/quienes-somos.css' %}">
 </head>
 <body>
+    
     <!-- Navbar Social Media and Language Selector -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid position-relative">
@@ -34,17 +36,25 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white mt-5">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="img/Logo.png" alt="Logo" width="50" height="50" class="me-2">
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'img/Logo.png' %}" alt="Logo" width="50" height="50" class="me-2">
                 <div class="d-flex flex-column">
                     <span class="fw-bold text-primary">El Hospital</span>
                     <span class="fw-bold text-primary">Geriátrico</span>
                 </div>
             </a>
             <div class="d-flex">
-                <a href="login.html" class="btn btn-outline-primary me-2">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                
+                <a href="/logout" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+                {% else %}
+                <a href="/login" class="btn btn-outline-primary me-2">
                     <i class="bi bi-person"></i>
                 </a>
+                {% endif %}
                 <button class="btn btn-outline-secondary">
                     <i class="bi bi-search"></i>
                 </button>
@@ -64,7 +74,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="{% url 'home' %}">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="nosotrosDropdown" data-bs-toggle="dropdown">Quienes Somos</a>
@@ -100,7 +110,7 @@
 
     <!-- Hero Image with Overlay Text -->
     <div class="image-container">
-        <img src="img/9.jpg" class="image" alt="Hospital Image">
+        <img src="{% static 'img/9.jpg' %}" class="image" alt="Hospital Image">
         <div class="overlay-content">
             <p class="text-overlay fw-bold">TRABAJA CON NOSOTROS</p>
         </div>
@@ -120,7 +130,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="img/doctor1.jpg" class="card-img-top" alt="Misión">
+                            <img src="{% static 'img/doctor1.jpg' %}" class="card-img-top" alt="Misión">
                             <div class="card-body">
                                 <h5 class="card-title">Misión</h5>
                                 <p class="card-text">Nuestra misión es proporcionar atención de salud de alta calidad a las personas mayores, mediante un enfoque integral que abarca tanto el cuidado físico como emocional. Buscamos mejorar la calidad de vida de nuestros pacientes, promoviendo su bienestar y dignidad a través de un equipo de profesionales comprometidos, un entorno seguro y un trato personalizado.</p>
@@ -129,7 +139,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="img/doctor2.jpg" style="height: 300px;" class="card-img-top" alt="Visión">
+                            <img src="{% static 'img/doctor2.jpg' %}" style="height: 300px;" class="card-img-top" alt="Visión">
                             <div class="card-body">
                                 <h5 class="card-title">Visión</h5>
                                 <p class="card-text">Ser reconocidos como un hospital geriátrico de excelencia, líder en el cuidado de la salud de la persona mayor. Nos esforzamos por ofrecer soluciones innovadoras y personalizadas que permitan a nuestros pacientes disfrutar de una vida plena, saludable y digna, en un entorno de respeto y confianza. Nuestro compromiso es estar a la vanguardia en los servicios de atención geriátrica, impulsando la salud y el bienestar de nuestros pacientes.</p>
@@ -138,7 +148,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
-                            <img src="img/doctor3.jpg" class="card-img-top" alt="Propuesta de Valor">
+                            <img src="{% static 'img/doctor3.jpg' %}" class="card-img-top" alt="Propuesta de Valor">
                             <div class="card-body">
                                 <h5 class="card-title">Propuesta de Valor</h5>
                                 <p class="card-text">Nos comprometemos a proporcionar una atención integral y personalizada a cada uno de nuestros pacientes mayores, con el fin de mejorar su calidad de vida y bienestar en todas las áreas de su salud.</p>
