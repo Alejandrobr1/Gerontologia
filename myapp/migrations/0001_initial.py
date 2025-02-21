@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='TUsuario',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rol', models.BooleanField()),
+                ('rol', models.BooleanField(default='0')),
             ],
         ),
     ]

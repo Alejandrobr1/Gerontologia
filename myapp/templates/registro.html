@@ -18,6 +18,18 @@
                     </a>
                 </div>
             </nav>
+<p>
+
+</p>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             <form id="registroForm" action="{% url 'registro' %}" method="POST" style="max-width: 330px; margin: auto; padding-top: 80px;" onsubmit="return validarContrasenas()">
                 {% csrf_token %}
@@ -67,8 +79,8 @@
                 <div class="form-floating mb-3">
                     <select class="form-select" id="rol" name="rol" required>
                         <option value="">Seleccione un rol</option>
-                        <option value="admin">Administrador</option>
-                        <option value="usuario">Usuario</option>
+                        <option value="true">Administrador</option>
+                        <option value="false">Usuario</option>
                     </select>
                     <label for="rol">Rol</label>
                 </div>
