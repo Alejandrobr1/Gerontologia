@@ -58,7 +58,7 @@
                     <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
                     <label for="correo">Correo electrónico</label>
                 </div>
-                {{error}}
+                
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required>
                     <label for="ciudad">Ciudad</label>
@@ -93,22 +93,15 @@
                 </div>
                 
                 <button class="btn btn-primary w-100 py-2" type="submit">Registrarse</button>
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                    {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-            {% endif %}
+            
+                {{error}}
                 <p class="mt-3">
                     ¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a>
                 </p>
             </form>
         </div>
     </main>
-<!--
+
     <script>
         function validarContrasenas() {
             const contrasena = document.getElementById('contrasena').value;
@@ -131,4 +124,3 @@
         });
     </script>
 </body>
-</html>-->
