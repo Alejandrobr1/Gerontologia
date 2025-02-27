@@ -3,7 +3,7 @@ Use Gerontologia;
 
 CREATE TABLE login(
 id bigint primary key auto_increment,
-contrasena varchar(100) not null,
+contrasenaLogin varchar(100) not null,
 rol varchar(50) default "N"
 );
 

@@ -20,7 +20,7 @@ class TUsuario(models.Model):
 
 class TLogin(models.Model):
     fk_iduser=models.ForeignKey(TUsuario, on_delete=models.CASCADE)
-    contrasena=models.CharField(max_length=100)
+    contrasenaLogin=models.CharField(max_length=100)
     def __str__(self):#Este metodo se encargara de mostrar el correo del usuario desde el administrador de Django
         return self.fk_iduser.correo
         

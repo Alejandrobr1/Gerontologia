@@ -25,9 +25,9 @@ def loginup(request):
             return render(request,'login.html', { 
                     'error': 'El usuario o contraseña son incorrectos' #si no coincide el usuario y contraseña, imprime el error y renderiza la vista de login nuevamente
             })    
-        else: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de inicio
+        else: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de registro usuario
             login(request, user)
-            return redirect('home')
+            return redirect('registro')
         
     
 #este metodo retorna a la vista especialidades
@@ -54,10 +54,10 @@ def registro(request):
         
 
         #Se valida que las contraseñas coincidan
-        if contrasena != confirmar_contrasena:
+        """if contrasena != confirmar_contrasena:
             return render(request, 'registro.html',{ 
                     'error': 'Las contraseñas no coinciden' #Error que indica que las contraseñas no coinciden
-            })
+            })"""
 
         #Se valida que el correo no esté registrado
         if User.objects.filter(username=correo).exists() or TUsuario.objects.filter(correo=correo).exists(): #Se busca el correo en las tablas de la clase User y TUsuario y si este existe devuelve un error
@@ -88,9 +88,10 @@ def registro(request):
             tuser.save() #Se guarda el usuario en la tabla
 
             tlogin = TLogin(
-                contrasena=contrasena #Se guarda la contraseña en la tabla de TLogin
+                fk_iduser=tuser,
+                contrasenaLogin=contrasena #Se guarda la contraseña en la tabla de TLogin
             )
-            tuser.save() #Se guarda la contraseña en la tabla
+            tlogin.save() #Se guarda la contraseña en la tabla"""
 
             #Iniciar sesión automáticamente
             login(request, user)
