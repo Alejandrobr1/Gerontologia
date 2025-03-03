@@ -79,7 +79,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="nosotrosDropdown" data-bs-toggle="dropdown">Quienes Somos</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Trabaja con Nosotros</a></li>
+                            <li><a class="dropdown-item" href="{% url 'somos' %}">Trabaja con Nosotros</a></li>
                             <li><a class="dropdown-item" href="#">Consultorios</a></li>
                         </ul>
                     </li>
@@ -87,7 +87,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="servicioDropdown" data-bs-toggle="dropdown">Servicio y Atención</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Consulta Médica</a></li>
-                            <li><a class="dropdown-item" href="#">Especialidades</a></li>
+                            <li><a class="dropdown-item" href="{% url 'especialidades' %}">Especialidades</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -110,7 +110,7 @@
 
     <!-- Hero Image with Overlay Text -->
     <div class="image-container">
-        <img src="{% static 'img/9.jpg' %}" class="image" alt="Hospital Image">
+        <img src="{% static 'img/trabajar.jpg' %}" class="image" alt="Hospital Image">
         <div class="overlay-content">
             <p class="text-overlay fw-bold">TRABAJA CON NOSOTROS</p>
         </div>
@@ -168,7 +168,7 @@
             <div class="mb-3">
                 <h5>Enlaces de Interés</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Términos y condiciones</a></li>
+                    <li><a href="{% url 'terminos' %}" class="text-white">Términos y condiciones</a></li>
                     <li><a href="#" class="text-white">Políticas de protección y tratamiento de datos</a></li>
                     <li><a href="#" class="text-white">Trabaja con nosotros</a></li>
                     <li><a href="#" class="text-white">Contáctanos</a></li>

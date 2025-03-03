@@ -78,9 +78,9 @@
                         <a class="nav-link" href="{% url 'home' %}">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="nosotrosDropdown" data-bs-toggle="dropdown">Quienes Somos</a>
+                        <a class="nav-link dropdown-toggle" href="somos/" id="nosotrosDropdown" data-bs-toggle="dropdown">Quienes Somos</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Trabaja con Nosotros</a></li>
+                            <li><a class="dropdown-item" href="{% url 'somos' %}">Trabaja con Nosotros</a></li>
                             <li><a class="dropdown-item" href="#">Consultorios</a></li>
                         </ul>
                     </li>
@@ -213,7 +213,7 @@
             <div class="mb-3">
                 <h5>Enlaces de Interés</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Términos y condiciones</a></li>
+                    <li><a href="{% url 'terminos' %}" class="text-white">Términos y condiciones</a></li>
                     <li><a href="#" class="text-white">Políticas de protección y tratamiento de datos</a></li>
                     <li><a href="#" class="text-white">Trabaja con nosotros</a></li>
                     <li><a href="#" class="text-white">Contáctanos</a></li>

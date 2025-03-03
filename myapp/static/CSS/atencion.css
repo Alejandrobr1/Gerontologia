@@ -1,0 +1,41 @@
+.text-center {
+    text-align: center;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .card {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .card-text {
+    text-align: center;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .btn-group {
+    margin-bottom: 10px;
+  }
+  
+  /* Nuevo estilo para el título del profesional */
+  .professional-title {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }

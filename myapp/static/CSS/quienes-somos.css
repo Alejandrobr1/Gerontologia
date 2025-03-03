@@ -6,7 +6,7 @@
 
 .image {
     width: 100%;  /* Hace que la imagen ocupe todo el ancho del contenedor */
-    height: 300px;  /* Ajusta la altura proporcionalmente */
+    height: 500px;  /* Ajusta la altura proporcionalmente */
     display: block;
 }
 

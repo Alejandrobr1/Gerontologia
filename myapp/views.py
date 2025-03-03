@@ -4,6 +4,8 @@ from .models import TUsuario, TLogin
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from django.contrib.auth.hashers import make_password
+
 
 #este metodo retorna a la vista principal
 def home(request):
@@ -42,8 +44,8 @@ def registro(request):
     else:
         #A continuación se almacenan lo datos escritos por el usuario en el formulario en variables
         correo = request.POST.get('correo')
-        contrasena = request.POST.get('contrasena')
-        confirmar_contrasena = request.POST.get('confirmar_contrasena')
+        #contrasena = request.POST.get('contrasena')
+        #confirmar_contrasena = request.POST.get('confirmar_contrasena')
         nombres = request.POST.get('nombres')
         primer_apellido = request.POST.get('primer_apellido')
         segundo_apellido = request.POST.get('segundo_apellido')
@@ -69,7 +71,7 @@ def registro(request):
             #Crea el usuario en la tabla User de Django
             user = User.objects.create_user(
                 username=correo,  #Se crea el usuario a partir del correo
-                password=contrasena #Se crea la contraseña del usuario 
+                #password=contrasena #Se crea la contraseña del usuario 
             )
             user.save() #Se guarda el usuario en la tabla 
 
@@ -87,9 +89,10 @@ def registro(request):
             )
             tuser.save() #Se guarda el usuario en la tabla
 
+            #contrasena_hasheada = make_password(contrasena)
             tlogin = TLogin(
                 fk_iduser=tuser,
-                contrasenaLogin=contrasena #Se guarda la contraseña en la tabla de TLogin
+                contrasenaLogin=" "#contrasena_hasheada #Se guarda la contraseña en la tabla de TLogin
             )
             tlogin.save() #Se guarda la contraseña en la tabla"""
 
@@ -108,3 +111,11 @@ def cerrarSesion(request):
     logout(request)
     return redirect('home')
   
+def atencion(request):
+    return render(request, "atencion.html")
+
+def servicios(request):
+    return render(request, "servicios.html")
+
+def terminos(request):
+    return render(request, "terminos.html")

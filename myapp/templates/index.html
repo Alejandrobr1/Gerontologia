@@ -99,7 +99,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Consulta Médica</a></li>
-                            <li><a class="dropdown-item" href="#">Especialidades</a></li>
+                            <li><a class="dropdown-item" href="{% url 'especialidades' %}">Especialidades</a></li>
                         </ul>
                     </li>
     
@@ -151,7 +151,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{% static '/img/1.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
+                <img src="{% static '/img/hospital.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="fw-bold">BIENVENIDOS AL HOSPITAL</h1>
                     <h2 class="fw-bold">UN LUGAR DONDE SU SALUD Y BIENESTAR SON NUESTRA PRIORIDAD</h2>
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{% static 'img/2.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
+                <img src="{% static 'img/doctores.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="fw-bold">BIENVENIDOS AL HOSPITAL</h1>
                     <h2 class="fw-bold">UN LUGAR DONDE SU SALUD Y BIENESTAR SON NUESTRA PRIORIDAD</h2>
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{% static 'img/3.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
+                <img src="{% static 'img/atencion.jpg' %}" style="height: 500px;" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="fw-bold">BIENVENIDOS AL HOSPITAL</h1>
                     <h2 class="fw-bold">UN LUGAR DONDE SU SALUD Y BIENESTAR SON NUESTRA PRIORIDAD</h2>
@@ -216,7 +216,7 @@
                         <button class="btn btn-primary text-white fw-bold">Pide tu cita</button>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img src="{% static 'img/4.jpg' %}" class="img-fluid rounded" alt="..." style="height: 350px;">
+                        <img src="{% static 'img/cita.jpg' %}" class="img-fluid rounded" alt="..." style="height: 350px;">
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
     <div class="container mt-5">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <img src="{% static 'img/5.jpg' %}" class="img-fluid rounded" alt="Imagen del hospital">
+                <img src="{% static 'img/profesionales.jpg' %}" class="img-fluid rounded" alt="Imagen del hospital">
             </div>
             <div class="col-md-6">
                 <h2 class="fw-bold text-dark">Encuentra un profesional</h2>
@@ -260,7 +260,7 @@
         <div class="row text-center">
             <div class="col-md-4">
                 <div class="card card-hover p-4 shadow">
-                    <img src="{% static 'img/6.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'img/creacion.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h2>Promovemos la creación de modelos de atención para personas mayores</h2>
                         <p>Promover la creación de modelos de atención para personas mayores significa impulsar el desarrollo de estrategias, 
@@ -270,7 +270,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-hover p-4 shadow">
-                    <img src="{% static 'img/7.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'img/necesidades.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h2>Satisfacemos las necesidades y deseos de los adultos mayores</h2>
                         <p>Satisfacer las necesidades y deseos de los adultos mayores" significa atender y cubrir tanto los aspectos básicos como los emocionales y sociales de las personas de la tercera edad. 
@@ -281,7 +281,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-hover p-4 shadow">
-                    <img src="{% static 'img/8.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'img/autocuidado.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h2>Fomentamos el autocuidado, la independencia y la autonomía</h2>
                         <p> impulsar a las personas a desarrollar habilidades y hábitos que les permitan cuidar de sí mismas, 
@@ -304,7 +304,7 @@
             <div class="mb-3">
                 <h5>Enlaces de Interés</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Términos y condiciones</a></li>
+                    <li><a href="{% url 'terminos' %}" class="text-white">Términos y condiciones</a></li>
                     <li><a href="#" class="text-white">Políticas de protección y tratamiento de datos</a></li>
                     <li><a href="#" class="text-white">Trabaja con nosotros</a></li>
                     <li><a href="#" class="text-white">Contáctanos</a></li>

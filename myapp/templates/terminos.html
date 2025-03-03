@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Geriátrica - Especializaciones</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/terminos.css' %}">
+</head>
+<body>
+
+    <!-- Barra Superior con Redes Sociales y Selector de Idioma -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid position-relative">
+            <div class="d-flex align-items-center">
+                <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <a class="navbar-brand text-white fw-bold position-absolute start-50 translate-middle-x" href="#">Bienvenidos a la Clínica Geriátrica</a>
+            <div class="ms-auto">
+                <select class="bg-transparent border-0 text-white">
+                    <option selected>Español (Colombia)</option>
+                    <option value="1">English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Principal -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mt-5">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="{% static 'img/Logo.png' %}" alt="Logo" width="50" height="50" class="me-2">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold text-primary">La Clínica</span>
+                    <span class="fw-bold text-primary">Geriátrica</span>
+                </div>
+            </a>
+            <div class="d-flex">
+                <a href="{% url 'login' %}" class="btn btn-outline-primary me-2"><i class="bi bi-person"></i></a>
+                <button class="btn btn-outline-secondary"><i class="bi bi-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Línea Divisoria -->
+    <hr class="my-0">
+
+    <!-- Menú de Navegación Secundario -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Quienes Somos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'somos' %}">Trabaja con Nosotros</a></li>
+                            <li><a class="dropdown-item" href="#">Consultorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Servicio y Atención</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'servicios' %}">Servicios</a></li>
+                            <li><a class="dropdown-item" href="{% url 'especialidades' %}">Especialidades</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pacientes y Visitantes</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Normas de Visita</a></li>
+                            <li><a class="dropdown-item" href="#">Derechos y Deberes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pide tu Cita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pagos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <hr>
+
+    <div class="container">
+        <h1 class="text-center fw-bold">Terminos del Servicio</h1>
+        
+        <h2 class="fw-bold">Según lo establecido en las leyes:</h2>
+        <p>Ley 1251 de 2008, "Por la cual se dictan normas tendientes a procurar la protección, promoción y
+            defensa de los derechos de los adultos mayores". Objeto. La presente ley tiene como objeto
+            proteger, promover, restablecer y defender los derechos de los adultos mayores, orientar políticas
+            que tengan en cuenta el proceso de envejecimiento, planes y programas por parte del Estado, la
+            sociedad civil y la familia y regular el funcionamiento de las instituciones que prestan servicios
+            de atención y desarrollo integral de las personas en su vejez</p>
+        <p>Ley 1276. Mediante la cual se modificó la Ley 687 de 2001 y se establecieron nuevos criterios de
+            atención integral del adulto mayor en los centros de vida. Autoriza la emisión de una estampilla prodotación y funcionamiento de los Centros de Bienestar del Anciano, instituciones y centros de vida
+            para la tercera edad, se establece su destinación y se dictan otras disposiciones"</p>    
+        
+        <h3 class="fw-bold">Ley 1315 de 2009</h3>
+        <p>"Por medio de la cual se establecen las condiciones mínimas que dignifiquen la
+            estadía de los adultos mayores en los centros de protección, centros de día e instituciones de
+            atención". </p>
+        
+        <h3 class="fw-bold">Ley 1655 de 2013</h3> <p>Por la cual se modifica el literal f) del artículo 7° de la ley 1276 de 2009:</p>
+        <p>Artículo 1° • el literal f) del artículo 7° de la ley 1276 de 2009 quedará así:</p>
+        <p>f) Gerontólogo. Profesional de la salud, titulado de instituciones de Educación Superior
+            debidamente acreditadas para esta área específica del conocimiento, que interviene en el proceso de
+            envejecimiento y vejez del ser humano como individuo y como colectividad, desde una perspectiva
+            integral, con el objetivo de humanizar y dignificar la calidad de vida de la población adulta mayor.</p>
+        
+        <h3 class="fw-bold">Ley 1850 del 2017</h3>
+        <p>Por medio de la cual se establecen medidas de protección al adulto mayor en Colombia, se
+            modifican las leyes 1251 de 2008, 1315 de 2009, 599 de 2000 y 1276 de 2009, se penaliza el
+            maltrato intrafamillar por abandono y se dictan otras disposiciones:</p>
+        <p>Ley 2015 Por medio del cual se crea la historia clínica electrónica interoperable y se dictan
+            otras disposiciones.</p>
+        
+        <h3 class="fw-bold">ARTÍCULO 1º. Objeto</h3>
+        <p> La presente ley tiene por objeto regular la Interoperabilidad de la Historia
+            Clínica Electrónica - IHCE, a través de la cual se intercambiarán los elementos de datos clínicos
+            relevantes, así como los documentos y expedientes clínicos del curso de vida de cada persona.</p>
+        <p>A través de la Historia Clínica Electrónica se facilitará, agilizará y garantizará el acceso y ejercicio
+            de los derechos a la salud y a la información de las personas, respetando el Hábeas Data y la reserva
+            de la misma.</p>    
+        
+        <h3 class="fw-bold">ARTÍCULO 2º. Definiciones.</h3>
+        <p><strong>Historia Clínica Electrónica</strong>: es el registro integral y cronológico de las condiciones de salud del
+            paciente, que se encuentra contenido en sistemas de información y aplicaciones de software con
+            capacidad de comunicarse, intercambiar datos y brindar herramientas para la utilización de la
+            información refrendada con firma digital del profesional tratante. Su almacenamiento, actualización
+            y uso se efectúa en estrictas condiciones de seguridad, integridad, autenticidad, confiabilidad,
+            exactitud, inteligibilidad, conservación, disponibilidad y acceso, de conformidad con la
+            normatividad vigente.</p>
+        <p><strong>Interoperabilidad</strong>: capacidad de varios sistemas o componentes para intercambiar información,
+            entender estos datos y utilizarlos. De este modo, la información es compartida y está accesible
+            desde cualquier punto de la red asistencial en la que se requiera su consulta y se garantiza la
+            coherencia y calidad de los datos en todo el sistema, con el consiguiente beneficio para la
+            continuidad asistencial y la seguridad del paciente</p>
+        
+        <h3 class="fw-bold">ARTÍCULO 11º. Reportes obligatorios de salud pública</h3>
+        <p>El Ministerio de Salud y Protección Social articulará la información consignada en los reportes obligatorios de salud pública con la
+            Historia Clínica Electrónica.</p>
+        
+        <h3 class="fw-bold">ARTÍCULO 12º. Prohibición de divulgar datos</h3>
+        <p>Está prohibida la divulgación de los datos de cualquier persona consignados en la Historia Clínica Electrónica por parte de quien hubiere tenido
+            acceso a esta información, teniendo en cuenta la normatividad vigente.</p>
+        
+        <h3 class="fw-bold">PARÁGRAFO 1</h3>
+        <p>Para los profesionales de la salud y los servidores públicos, la divulgación de la información de que trata el presente ·artículo constituirá falta gravísima de acuerdo con la
+            Ley 1952 de 2019 y la Ley 23 de 1981 o normas que la modifiquen, complementen o sustituyan</p>
+        
+        <h2 class="fw-bold">ARTÍCULO 13º. Seguridad e la información y seguridad digital</h2>
+        <p>Los actores que traten información en el marco del presente título deberán establecer un plan de seguridad y privacidad de
+            la información, seguridad digital y continuidad de la prestación del servicio, para lo cual
+            establecerán una estrategia a través de la cual deberán realizar periódicamente una evaluación del
+            riesgo de seguridad digital, que incluya una identificación de las mejoras a implementar en su
+            Sistema de Administración del Riesgo Operativo.</p>
+        <h3 class="text-center">Ley 2055 del 2020.</h3>
+        <p>Por medio de la cual se aprueba la <strong>“CONVENCIÓN INTERAMERICANA SOBRE LA PROTECCIÓN DE LOS DERECHOS HUMANOS DE LAS PERSONAS MAYORES”</strong>,
+            ADOPTADA EN WASHINGTON, EL 15 JUNIO DE 2015.</p>
+        <p>Las <strong> Personas Adultas Mayores</strong> tienen <strong>derecho</strong> a recibir los satisfactores necesarios para su atención integral, incluyendo su acceso preferente a los servicios médicos y a recibir capacitación y
+            orientación respecto a su salud, nutrición, higiene y todos aquellos aspectos que favorezcan su
+            cuidado personal. Además de los Derechos Constitucionales y legislativos, a los cuales tienen
+            derecho todos los habitantes de Colombia.</p>
+        
+        <h3 class="fw-bold">Decreto 0681 del año 2022. POLITICA PUBLICA NACIONAL DE ENVEJECIMIEN Y VEJEZ 2022 – 2031</h3>
+        <p>Cuyo objetivo es: Garantizar las condiciones necesarias para el envejecimiento saludable y la vivencia de una vejez digna, autónoma e independiente en igualdad, equidad y no discriminación,
+            en el marco de la protección, promoción, defensa y restablecimiento de los derechos humanos y
+            bajo el principio de corresponsabilidad individual, familiar, social y estatal.</p>
+        
+        <h3 class="fw-bold">Vocabulario </h3>
+        <h2 class="fw-bold">Geriatría</h2>
+        <p>Rama de la medicina que se encarga del estudio terapéutico, clínico, social y preventivo de la salud y de la enfermedad de los ancianos. </p>
+        
+        <h3 class="fw-bold">Gerontología</h3>
+        <p>Ciencia interdisciplinaria que estudia el envejecimiento y la vejez teniendo en cuenta los aspectos biopsicosociales (psicológicos, biológicos, sociales). </p>
+        
+        <h3 class="fw-bold">Gerontólogo</h3>
+        <p>Profesional de la salud, titulado de instituciones de Educación Superior debidamente
+            acreditadas para esta área específica del conocimiento, que interviene en el proceso de
+            envejecimiento y vejez del ser humano como individuo y como colectividad, desde una perspectiva
+            integral, con el objetivo de humanizar y dignificar la calidad de vida de la población adulta mayor.</p>
+        
+        <h3 class="fw-bold">Centros de Protección Social para el Adulto Mayor (CPSAM).</h3>
+        <p>Instituciones de protección destinadas al ofrecimiento de servicios de hospedaje, de bienestar social y cuidado integral de
+            manera permanente o temporal a adultos mayores. </p>
+        
+        <h3 class="fw-bold">Centros de día para adulto mayor</h3>
+        <p>Instituciones destinadas al cuidado, bienestar integral y
+            asistencia social de los adultos mayores que prestan sus servicios en horas diurnas</p>
+        
+        <h3 class="fw-bold">Instituciones de atención</h3>
+        <p>Instituciones públicas, privadas o mixtas que cuentan con infraestructuras físicas (propias o ajenas) en donde se prestan servicios de salud o asistencia social
+            y, en general, las dedicadas a la prestación de servicios de toda índole que beneficien al adulto
+            mayor en las diversas esferas de su promoción personal como sujetos con derechos plenos. </p>
+
+        <h3 class="fw-bold">Instituciones de atención domiciliaria</h3>
+        <p>Institución que presta sus servicios de bienestar a los
+            adultos mayores en la modalidad de cuidados y/o de servicios de salud en la residencia del usuario. </p>
+
+        <h3 class="fw-bold">Centro Vida al conjunto de proyectos</h3>
+        <p>procedimientos, protocolos e infraestructura física, técnica y administrativa orientada a brindar una atención integral, durante el día, a los Adultos Mayores,
+            haciendo una contribución que impacte en su calidad de vida y bienestar; ley 2176 de 2009. </p>
+    </div>
+
+    
+
+    <footer class="bg-primary text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2025 Clínica Geriátrica | Todos los derechos reservados</p>
+            
+            <div class="mb-3">
+                <h5>Enlaces de Interés</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'terminos' %}" class="text-white">Términos y condiciones</a></li>
+                    <li><a href="#" class="text-white">Políticas de protección y tratamiento de datos</a></li>
+                    <li><a href="#" class="text-white">Trabaja con nosotros</a></li>
+                    <li><a href="#" class="text-white">Contáctanos</a></li>
+                    <li><a href="#" class="text-white">Preguntas frecuentes</a></li>
+                    <li><a href="#" class="text-white">Noticias</a></li>
+                    <li><a href="#" class="text-white">Mapa de sitio</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

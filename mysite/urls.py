@@ -27,5 +27,8 @@ urlpatterns = [
     path('especialidades/', views.especialidades, name='especialidades'),
     path('logout/', views.cerrarSesion, name='logout'),
     path('quienes_somos/', views.somos, name='somos'),
+    path('atencion/', views.atencion, name='atencion'),
+    path('servicios/', views.servicios, name='servicios'),
+    path('terminos/', views.terminos, name='terminos'),
     
     ]
