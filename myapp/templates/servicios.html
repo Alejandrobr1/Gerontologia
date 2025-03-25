@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Geriátrica - Especializaciones</title>
+    <title>Centro Geriátrico - Especializaciones</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,82 +14,60 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'CSS/servicios.css' %}">
+
+    <link rel="icon" href="{% static 'img/Logo.png' %}">
 </head>
 <body>
 
-    <!-- Barra Superior con Redes Sociales y Selector de Idioma -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container-fluid position-relative">
-            <div class="d-flex align-items-center">
-                <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-whatsapp"></i></a>
-            </div>
-            <a class="navbar-brand text-white fw-bold position-absolute start-50 translate-middle-x" href="#">Bienvenidos a la Clínica Geriátrica</a>
-            <div class="ms-auto">
-                <select class="bg-transparent border-0 text-white">
-                    <option selected>Español (Colombia)</option>
-                    <option value="1">English</option>
-                </select>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navbar Principal -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white mt-5">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-                <img src="{% static 'img/Logo.png' %}" alt="Logo" width="50" height="50" class="me-2">
-                <div class="d-flex flex-column">
-                    <span class="fw-bold text-primary">La Clínica</span>
-                    <span class="fw-bold text-primary">Geriátrica</span>
-                </div>
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mt-1">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand d-flex flex-column align-items-center text-center" href="{% url 'home' %}">
+                <img src="{% static 'img/Logo.png' %}" alt="Logo" width="300" height="300" class="mb-2">
+                
             </a>
-            <div class="d-flex">
-                <a href="/login" class="btn btn-outline-primary me-2"><i class="bi bi-person"></i></a>
-                <button class="btn btn-outline-secondary"><i class="bi bi-search"></i></button>
-            </div>
+        
         </div>
     </nav>
 
-    <!-- Línea Divisoria -->
+    
+
     <hr class="my-0">
 
-    <!-- Menú de Navegación Secundario -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container">
+            <!-- Botón de menú para dispositivos móviles -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+    
+            <!-- Contenido del menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Quienes Somos</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'somos' %}">Trabaja con Nosotros</a></li>
-                            <li><a class="dropdown-item" href="#">Consultorios</a></li>
-                        </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}" role="button" style="color: white;">Inicio</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Servicio y Atención</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'servicios' %}">Servicios</a></li>
-                            <li><a class="dropdown-item" href="{% url 'especialidades' %}">Especialidades</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'somos' %}" role="button" style="color: white;">Quiénes Somos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pacientes y Visitantes</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Normas de Visita</a></li>
-                            <li><a class="dropdown-item" href="#">Derechos y Deberes</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'servicios' %}" role="button" style="color: white;">Servicios</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pide tu Cita</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pagos</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contactenos' %}" role="button" style="color: white;">Contáctenos</a>
+                    </li>
                 </ul>
             </div>
+            <div class="d-flex">
+                <a href="{% url 'login' %}" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-person text-white"></i>
+                </a>
+                <button class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-search text-white"></i>
+                </button>
+            </div>            
         </div>
     </nav>
 
@@ -98,7 +76,7 @@
     
     <div class="seccion-servicios">
         <div class="container">
-            <h1 class="text-primary">Servicios que prestamos en nuestra Clínica</h1>
+            <h1 class="text-dark fw-bold">Servicios que prestamos en nuestro Centro</h1>
             <p class="descripcion">
                 Estos servicios buscan mejorar la calidad de vida de los adultos mayores, garantizando su bienestar físico, emocional y social. 
                 Para lograrlo, se enfocan en proporcionar atención médica adecuada, actividades recreativas y de integración, 
@@ -112,84 +90,88 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- Tarjeta 1 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/hospedaje.jpg' %}" class="card-img-top" alt="Hospedaje">
                 <div class="card-body">
                     <h5 class="card-title">Hospedaje</h5>
                     <p class="card-text">Habitaciones individuales o compartidas adaptadas a las necesidades de los adultos mayores.</p>
                     <p class="card-text">Espacios seguros y accesibles con medidas de seguridad como barandillas, iluminación adecuada y pisos antideslizantes.</p>
                     <p class="card-text">Servicio de limpieza y mantenimiento para un ambiente higiénico y confortable.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
     
         <!-- Tarjeta 2 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/Alimentacion.jpg' %}" class="card-img-top" alt="Alimentación">
                 <div class="card-body">
                     <h5 class="card-title">Alimentación</h5>
                     <p class="card-text">Planes de alimentación balanceada diseñados por nutricionistas.</p>
                     <p class="card-text">Tres comidas principales y refrigerios saludables, asegurando una dieta adecuada.</p>
                     <p class="card-text">Atención a requerimientos especiales como dietas blandas o enterales.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
     
         <!-- Tarjeta 3 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/Arreglo-de-ropa.jpg' %}" class="card-img-top" alt="Arreglo de ropa">
                 <div class="card-body">
                     <h5 class="card-title">Arreglo de ropa</h5>
                     <p class="card-text">Lavado, planchado y mantenimiento de la ropa personal y de cama.</p>
                     <p class="card-text">Reparaciones menores como costuras y cambios de botones.</p>
                     <p class="card-text">Organización de la vestimenta según estación o necesidades individuales.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <hr>
     
-    
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Tarjeta 4 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/cuidados.jpg' %}" class="card-img-top" alt="Servicio 4">
                 <div class="card-body">
                     <h5 class="card-title">Cuidados básicos de enfermería:</h5>
                     <p class="card-text">Atención por parte de auxiliares de enfermería y técnicos cuidadores para la administración de medicamentos, control de signos vitales y curaciones simples.</p>
                     <p class="card-text">Monitoreo constante de la salud de los residentes, con registros de evolución y comunicación con médicos en caso necesario.</p>
                     <p class="card-text">Asistencia en actividades diarias como higiene personal, movilidad y alimentación.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
+    
+        <!-- Tarjeta 5 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/recreacion.jpg' %}" class="card-img-top" alt="Servicio 5">
                 <div class="card-body">
                     <h5 class="card-title">Recreación</h5>
                     <p class="card-text">Actividades lúdicas y de entretenimiento como juegos de mesa, música, cine y lectura.</p>
                     <p class="card-text">Ejercicios físicos adaptados como yoga, gimnasia suave y caminatas supervisadas.</p>
                     <p class="card-text">Espacios de socialización para fortalecer la convivencia y evitar el aislamiento.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
+    
+        <!-- Tarjeta 6 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 custom-border">
                 <img src="{% static 'img/terapia-ocupacional.jpg' %}" class="card-img-top" alt="Servicio 6">
                 <div class="card-body">
                     <h5 class="card-title">Terapia ocupacional</h5>
                     <p class="card-text">Actividades diseñadas para mejorar la autonomía y funcionalidad en la vida diaria.</p>
-                    <p class="card-text">Estimulación cognitiva a través de ejercicios de memoria, manualidades y terapias sensoriales..</p>
+                    <p class="card-text">Estimulación cognitiva a través de ejercicios de memoria, manualidades y terapias sensoriales.</p>
                     <p class="card-text">Rehabilitación mediante ejercicios adaptados para prevenir la pérdida de movilidad y fortalecer habilidades motoras.</p>
-                    <a href="#" class="btn btn-primary">Consulte Aquí</a>
+                    <a href="#" class="btn" style="background-color: #EA7913; color:#ffffff;">Consulte Aquí</a>
                 </div>
             </div>
         </div>
@@ -200,7 +182,7 @@
 
 
     <!-- Pie de Página -->
-    <footer class="bg-primary text-white text-center py-4">
+    <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <p>&copy; 2025 Clínica Geriátrica | Todos los derechos reservados</p>
             

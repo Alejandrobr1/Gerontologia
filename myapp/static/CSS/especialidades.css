@@ -1,5 +1,5 @@
 body {
-    background-color: #cce7fb; 
+    background-color: #ffffff; 
 }
 
 .card {
@@ -8,4 +8,10 @@ body {
 }
 .card-text {
     height: 50%;
+}
+
+.seccion-especialidades {
+    width: 100%; 
+    background-color: #ffffff; 
+    padding: 50px 0; /
 }

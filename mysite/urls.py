@@ -22,13 +22,22 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('login/', views.loginup, name='login'),
-    path('login/registro/', views.registro, name='registro'),
-    path('especialidades/', views.especialidades, name='especialidades'),
-    path('logout/', views.cerrarSesion, name='logout'),
-    path('quienes_somos/', views.somos, name='somos'),
+    path('administrador/', views.administrador, name='administrador'),
     path('atencion/', views.atencion, name='atencion'),
+    path('contactenos/', views.contactenos, name='contactenos'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('especialidades/', views.especialidades, name='especialidades'),
+    path('login/', views.loginup, name='login'),
+    path('paciente/', views.paciente, name='paciente'),
+    path('login/registro/', views.registro, name='registro'),
     path('servicios/', views.servicios, name='servicios'),
+    path('somos/', views.somos, name='somos'),
     path('terminos/', views.terminos, name='terminos'),
+    path('logout/', views.cerrarSesion, name='logout'),
+    
+    
+    
+    
+  
     
     ]

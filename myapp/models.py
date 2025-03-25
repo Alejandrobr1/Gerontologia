@@ -13,7 +13,7 @@ class TUsuario(models.Model):
     correo=models.CharField(max_length=255)
     ciudad=models.CharField(max_length=255)
     direccion=models.CharField(max_length=100)
-    rol=models.BooleanField(blank=False)
+    profesional=models.CharField(max_length=255,default="2")
 
     def __str__(self): #Este metodo se encargara de mostrar el nombre del usuario desde el administrador de Django
         return self.nombre +' '+ self.primer_apellido +' '+ self.segundo_apellido

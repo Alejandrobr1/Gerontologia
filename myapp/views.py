@@ -11,9 +11,22 @@ from django.contrib.auth.hashers import make_password
 def home(request):
     return render(request, "index.html")
 
-#este metodo retorna a la vista quienes somos
-def somos(request):
-    return render(request, "quienes-Somos.html")
+def administrador(request):
+    return render(request, "administrador.html")
+
+def atencion(request):
+    return render(request, "atencion.html")
+
+def contactenos(request):
+    return render(request, "contactenos.html")
+
+def dashboard(request):
+    return render(request, "Dashboards.html")
+
+#este metodo retorna a la vista especialidades
+def especialidades(request):
+    return render(request, "especialidades.html")
+
 
 #este método inicia la sesion del usuario
 def loginup(request):
@@ -32,9 +45,8 @@ def loginup(request):
             return redirect('registro')
         
     
-#este metodo retorna a la vista especialidades
-def especialidades(request):
-    return render(request, "especialidades.html")
+def paciente(request):
+    return render(request, "paciente.html")
 
 
 #este metodo retorna registra al usuario
@@ -43,23 +55,24 @@ def registro(request):
         return render(request, 'registro.html')
     else:
         #A continuación se almacenan lo datos escritos por el usuario en el formulario en variables
-        correo = request.POST.get('correo')
-        #contrasena = request.POST.get('contrasena')
-        #confirmar_contrasena = request.POST.get('confirmar_contrasena')
-        nombres = request.POST.get('nombres')
-        primer_apellido = request.POST.get('primer_apellido')
-        segundo_apellido = request.POST.get('segundo_apellido')
-        documentoid = request.POST.get('documentoid')
+        correo = str.lower(request.POST.get('correo'))
+        contrasena = request.POST.get('contrasena')
+        confirmar_contrasena = request.POST.get('confirmar_contrasena')
+        nombres = str.capitalize(str.lower(request.POST.get('nombres')))
+        primer_apellido = str.capitalize(str.lower(request.POST.get('primer_apellido')))
+        segundo_apellido = str.capitalize(str.lower(request.POST.get('segundo_apellido')))
+        documentoid = str.upper(request.POST.get('documentoid'))
         celular = request.POST.get('celular')
-        ciudad = request.POST.get('ciudad')
+        ciudad = str.capitalize(request.POST.get('ciudad'))
         direccion = request.POST.get('direccion')
+        profesional=str.capitalize(str.lower(request.POST.get('profesional')))
         
 
         #Se valida que las contraseñas coincidan
-        """if contrasena != confirmar_contrasena:
+        if contrasena != confirmar_contrasena:
             return render(request, 'registro.html',{ 
                     'error': 'Las contraseñas no coinciden' #Error que indica que las contraseñas no coinciden
-            })"""
+            })
 
         #Se valida que el correo no esté registrado
         if User.objects.filter(username=correo).exists() or TUsuario.objects.filter(correo=correo).exists(): #Se busca el correo en las tablas de la clase User y TUsuario y si este existe devuelve un error
@@ -71,7 +84,7 @@ def registro(request):
             #Crea el usuario en la tabla User de Django
             user = User.objects.create_user(
                 username=correo,  #Se crea el usuario a partir del correo
-                #password=contrasena #Se crea la contraseña del usuario 
+                password=contrasena #Se crea la contraseña del usuario 
             )
             user.save() #Se guarda el usuario en la tabla 
 
@@ -85,14 +98,14 @@ def registro(request):
                 correo=correo,
                 ciudad=ciudad,
                 direccion=direccion,
-                rol=0
+                profesional=profesional
             )
             tuser.save() #Se guarda el usuario en la tabla
 
             #contrasena_hasheada = make_password(contrasena)
             tlogin = TLogin(
                 fk_iduser=tuser,
-                contrasenaLogin=" "#contrasena_hasheada #Se guarda la contraseña en la tabla de TLogin
+                contrasenaLogin=contrasena #contrasena_hasheada Se guarda la contraseña en la tabla de TLogin
             )
             tlogin.save() #Se guarda la contraseña en la tabla"""
 
@@ -107,15 +120,18 @@ def registro(request):
             return render(request, 'registro.html')
   
 #este metodo cierra la sesion del usuario y redirecciona al usuario a la pagina principal 
-def cerrarSesion(request):
-    logout(request)
-    return redirect('home')
-  
-def atencion(request):
-    return render(request, "atencion.html")
+
 
 def servicios(request):
     return render(request, "servicios.html")
 
+#este metodo retorna a la vista quienes somos
+def somos(request):
+    return render(request, "Somos.html")
+
 def terminos(request):
     return render(request, "terminos.html")
+
+def cerrarSesion(request):
+    logout(request)
+    return redirect('home')
