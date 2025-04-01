@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from .models import TUsuario, TLogin
+from .models import TUsuario #TLogin
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
@@ -42,7 +42,7 @@ def loginup(request):
             })    
         else: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de registro usuario
             login(request, user)
-            return redirect('registro')
+            return redirect('administrador')
         
     
 def paciente(request):
@@ -65,7 +65,7 @@ def registro(request):
         celular = request.POST.get('celular')
         ciudad = str.capitalize(request.POST.get('ciudad'))
         direccion = request.POST.get('direccion')
-        profesional=str.capitalize(str.lower(request.POST.get('profesional')))
+        #profesional=str.capitalize(str.lower(request.POST.get('profesional')))
         
 
         #Se valida que las contraseñas coincidan
@@ -75,7 +75,7 @@ def registro(request):
             })
 
         #Se valida que el correo no esté registrado
-        if User.objects.filter(username=correo).exists() or TUsuario.objects.filter(correo=correo).exists(): #Se busca el correo en las tablas de la clase User y TUsuario y si este existe devuelve un error
+        if User.objects.filter(username=correo).exists(): #Se busca el correo en las tabla de la clase User si este existe devuelve un error
             return render(request, 'registro.html',{ 
                     'error': 'El correo electrónico ya está registrado' #Error que indica que el correo ya esta registrado
             })
@@ -84,26 +84,30 @@ def registro(request):
             #Crea el usuario en la tabla User de Django
             user = User.objects.create_user(
                 username=correo,  #Se crea el usuario a partir del correo
-                password=contrasena #Se crea la contraseña del usuario 
+                email=correo,
+                password=contrasena, #Se crea la contraseña del usuario 
+                first_name=nombres,
+                last_name=primer_apellido
             )
             user.save() #Se guarda el usuario en la tabla 
 
             #Crea el registro en la tabla TUsuario
-            tuser = TUsuario(
-                nombre=nombres,
-                primer_apellido=primer_apellido,
+            tuser = TUsuario.objects.create(
+                #nombre=nombres,
+                #primer_apellido=primer_apellido,
+                user=user,
                 segundo_apellido=segundo_apellido,
                 documento=documentoid,
                 celular=celular,
-                correo=correo,
+                #correo=correo,
                 ciudad=ciudad,
                 direccion=direccion,
-                profesional=profesional
+                #profesional=profesional
             )
             tuser.save() #Se guarda el usuario en la tabla
 
             #contrasena_hasheada = make_password(contrasena)
-            tlogin = TLogin(
+            """tlogin = TLogin(
                 fk_iduser=tuser,
                 contrasenaLogin=contrasena #contrasena_hasheada Se guarda la contraseña en la tabla de TLogin
             )
