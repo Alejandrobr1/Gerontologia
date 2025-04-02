@@ -40,10 +40,12 @@ def loginup(request):
             return render(request,'login.html', { 
                     'error': 'El usuario o contraseña son incorrectos' #si no coincide el usuario y contraseña, imprime el error y renderiza la vista de login nuevamente
             })    
-        else: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de registro usuario
+        elif user.is_superuser: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de registro usuario
             login(request, user)
             return redirect('administrador')
-        
+        else:
+            login(request, user)
+            return redirect('paciente')
     
 def paciente(request):
     return render(request, "paciente.html")
