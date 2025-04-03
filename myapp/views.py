@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from .models import TUsuario #TLogin
 from django.http import HttpResponse
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 
@@ -33,7 +33,7 @@ def loginup(request):
     if request.method == 'GET': #si se hace la petición al servidor entonces este devuelve la vista de login
         return render(request,'login.html')        
     else:
-        user = authenticate(username=request.POST['correo'], 
+        user = authenticate(username=str.lower(request.POST['correo']), 
                             password=request.POST['contrasena']) # almacena el usuario en una variable user y autentifica el usuario y contraseña enviados
 
         if user is None: #si el usuario y/o contraseña no existen entonces muestra nuevamente la vista login
@@ -42,7 +42,7 @@ def loginup(request):
             })    
         elif user.is_superuser: #si el usuario existe en la base de datos y ademas coincide la contraseña, se redirige al usuario a la pagina de registro usuario
             login(request, user)
-            return redirect('administrador')
+            return redirect('paciente')
         else:
             login(request, user)
             return redirect('paciente')
