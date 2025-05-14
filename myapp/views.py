@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from .models import TUsuario #TLogin
+from .models import Usuario #TLogin
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib import messages
@@ -94,7 +94,7 @@ def registro(request):
             user.save() #Se guarda el usuario en la tabla 
 
             #Crea el registro en la tabla TUsuario
-            tuser = TUsuario.objects.create(
+            tuser = Usuario.objects.create(
                 #nombre=nombres,
                 #primer_apellido=primer_apellido,
                 user=user,
