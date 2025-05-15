@@ -29,6 +29,7 @@ urlpatterns = [
     path('especialidades/', views.especialidades, name='especialidades'),
     path('login/', views.loginup, name='login'),
     path('paciente/', views.paciente, name='paciente'),
+    path('historia_gerontologica/', views.historia_gerontologica, name='historia_gerontologica'),
     path('login/registro/', views.registro, name='registro'),
     path('servicios/', views.servicios, name='servicios'),
     path('somos/', views.somos, name='somos'),

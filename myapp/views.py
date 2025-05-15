@@ -50,6 +50,9 @@ def loginup(request):
 def paciente(request):
     return render(request, "paciente.html")
 
+def historia_gerontologica(request):
+    return render(request, "historia_gerontologica.html")
+
 
 #este metodo retorna registra al usuario
 def registro(request):
